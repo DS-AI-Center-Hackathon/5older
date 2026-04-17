@@ -1,5 +1,7 @@
 import os
+import tkinter as tk
 from pathlib import Path
+from tkinter import filedialog
 
 import streamlit as st
 from dotenv import load_dotenv
@@ -8,6 +10,15 @@ from openai import OpenAI
 from core.organizer import apply_changes, plan_changes
 from core.rule_parser import parse_rules
 
+
+def _pick_folder() -> str:
+    root = tk.Tk()
+    root.withdraw()
+    root.wm_attributes("-topmost", 1)
+    folder = filedialog.askdirectory(title="정리할 폴더 선택")
+    root.destroy()
+    return folder
+
 load_dotenv()
 
 st.set_page_config(page_title="Clean Folder", page_icon="🗂️", layout="centered")
@@ -15,10 +26,21 @@ st.title("🗂️ Clean Folder")
 st.caption("AI가 파일 내용을 읽고 규칙에 따라 자동으로 이름 변경 + 폴더 분류합니다.")
 
 # ── 입력 ──────────────────────────────────────────────────────────────────────
-folder_input = st.text_input(
-    "정리할 폴더 경로",
-    placeholder="예: C:/Users/User/Downloads",
-)
+st.markdown("정리할 폴더 경로")
+_col_path, _col_btn = st.columns([5, 1], vertical_alignment="bottom")
+with _col_path:
+    folder_input = st.text_input(
+        "정리할 폴더 경로",
+        placeholder="예: C:/Users/User/Downloads",
+        key="folder_input",
+        label_visibility="collapsed",
+    )
+with _col_btn:
+    if st.button("📂 선택", use_container_width=True, help="파일 탐색기로 폴더 선택"):
+        picked = _pick_folder()
+        if picked:
+            st.session_state["folder_input"] = picked
+        st.rerun()
 
 default_rule = "날짜_주제_출처 형식으로 이름 짓고, 보고서 / 참고자료 / 양식 / 기타 폴더로 분류해줘"
 rule_input = st.text_area(
