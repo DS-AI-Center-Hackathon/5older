@@ -151,3 +151,11 @@ classDiagram
 
 - 적용 시 원본 파일은 `_backup_YYYYMMDD_HHMMSS` 폴더에 자동 백업됩니다.
 - OpenAI API 사용 요금이 발생할 수 있습니다.
+
+
+## 추가 개발 계획 
+1. 관리자 페이지
+* 테스트를 cli 기반이 아닌 별도의 ui에서 수행하고 결과를 확인
+
+2. Frontend UI 개선 
+* 다크모드 버전 UI 개발 
