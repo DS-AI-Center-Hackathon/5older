@@ -1,0 +1,173 @@
+{
+  "run_at": "2026-04-17 15:12:02",
+  "results": {
+    "test_file_reader": [
+      {
+        "name": "TXT 파일 텍스트 추출",
+        "status": "PASS",
+        "elapsed_ms": 0.19,
+        "detail": "추출 성공 (239자)"
+      },
+      {
+        "name": "DOCX 파일 텍스트 추출",
+        "status": "PASS",
+        "elapsed_ms": 117.14,
+        "detail": "추출 성공 (245자)"
+      },
+      {
+        "name": "XLSX 파일 텍스트 추출",
+        "status": "PASS",
+        "elapsed_ms": 303.49,
+        "detail": "추출 성공 (219자)"
+      },
+      {
+        "name": "미지원 확장자(.png) 처리",
+        "status": "PASS",
+        "elapsed_ms": 0.03,
+        "detail": "None 반환 (정상)"
+      },
+      {
+        "name": "존재하지 않는 파일 처리",
+        "status": "PASS",
+        "elapsed_ms": 0.08,
+        "detail": "None 반환 (정상)"
+      },
+      {
+        "name": "최대 글자 수(500자) 제한",
+        "status": "PASS",
+        "elapsed_ms": 0.19,
+        "detail": "최대 500자 제한 준수 (239자)"
+      },
+      {
+        "name": "다중 파일 처리 성능(3초 이내)",
+        "status": "PASS",
+        "elapsed_ms": 35.12,
+        "detail": "20개 파일 처리 35ms"
+      },
+      {
+        "name": "한글 인코딩 처리",
+        "status": "PASS",
+        "elapsed_ms": 0.09,
+        "detail": "한글 인코딩 정상"
+      },
+      {
+        "name": "빈 파일 처리",
+        "status": "PASS",
+        "elapsed_ms": 0.29,
+        "detail": "빈 파일 처리 정상"
+      },
+      {
+        "name": "특수문자 포함 파일명 처리",
+        "status": "PASS",
+        "elapsed_ms": 1.58,
+        "detail": "특수문자 파일명 처리 정상"
+      }
+    ],
+    "test_rule_parser": [
+      {
+        "name": "파싱 결과 dict 반환",
+        "status": "PASS",
+        "elapsed_ms": 0.91,
+        "detail": "dict 타입 반환"
+      },
+      {
+        "name": "필수 키 존재 검증",
+        "status": "PASS",
+        "elapsed_ms": 0.56,
+        "detail": "필수 키 존재: naming_pattern=YYYYMMDD_주제_출처, folders=['보고서', '참고자료', '양식', '기타']"
+      },
+      {
+        "name": "folders 리스트 형식 검증",
+        "status": "PASS",
+        "elapsed_ms": 0.44,
+        "detail": "folders 리스트 (4개)"
+      },
+      {
+        "name": "catch-all 기타 폴더 포함",
+        "status": "PASS",
+        "elapsed_ms": 0.43,
+        "detail": "catch-all '기타' 폴더 존재"
+      },
+      {
+        "name": "API 호출 횟수 검증",
+        "status": "PASS",
+        "elapsed_ms": 0.44,
+        "detail": "API 정확히 1회 호출"
+      },
+      {
+        "name": "잘못된 JSON 응답 예외 처리",
+        "status": "PASS",
+        "elapsed_ms": 0.46,
+        "detail": "잘못된 JSON 응답 시 예외 발생"
+      },
+      {
+        "name": "긴 입력 처리",
+        "status": "PASS",
+        "elapsed_ms": 0.45,
+        "detail": "긴 입력(len=1000) 처리 정상"
+      }
+    ],
+    "test_organizer": [
+      {
+        "name": "plan_changes 리스트 반환",
+        "status": "PASS",
+        "elapsed_ms": 2.45,
+        "detail": "1개 변경 계획 생성"
+      },
+      {
+        "name": "변경 항목 필수 필드 검증",
+        "status": "PASS",
+        "elapsed_ms": 2.69,
+        "detail": "필수 필드(original/new_name/target_folder/status) 모두 존재"
+      },
+      {
+        "name": "바이너리 파일 API 미호출",
+        "status": "PASS",
+        "elapsed_ms": 1.38,
+        "detail": "이미지 파일: API 호출 없이 확장자 기반 분류"
+      },
+      {
+        "name": "apply_changes 백업 생성",
+        "status": "PASS",
+        "elapsed_ms": 2.37,
+        "detail": "백업 폴더 생성 및 원본 보존 확인"
+      },
+      {
+        "name": "apply_changes 파일 이동/이름변경",
+        "status": "PASS",
+        "elapsed_ms": 2.2,
+        "detail": "파일 이동 및 이름 변경 성공"
+      },
+      {
+        "name": "중복 없는 파일명 처리",
+        "status": "PASS",
+        "elapsed_ms": 0.0,
+        "detail": "중복 없을 때 원본 이름 유지"
+      },
+      {
+        "name": "중복 파일명 자동 번호 부여",
+        "status": "PASS",
+        "elapsed_ms": 0.02,
+        "detail": "중복 파일명 자동 번호 부여"
+      },
+      {
+        "name": "잘못된 폴더명 fallback 처리",
+        "status": "PASS",
+        "elapsed_ms": 4.31,
+        "detail": "잘못된 폴더명 → 기타(catch-all) 폴더로 fallback"
+      },
+      {
+        "name": "빈 폴더 처리",
+        "status": "PASS",
+        "elapsed_ms": 1.0,
+        "detail": "빈 폴더: 빈 리스트 반환"
+      },
+      {
+        "name": "10개 파일 처리 성능",
+        "status": "PASS",
+        "elapsed_ms": 13.24,
+        "detail": "10개 파일 처리 9ms (5초 이내)"
+      }
+    ]
+  }
+}
