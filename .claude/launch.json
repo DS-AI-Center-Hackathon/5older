@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "news-to-webtoon",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "streamlit", "run", "news-to-webtoon/app.py", "--server.port", "8501"],
+      "port": 8501
+    },
+    {
+      "name": "clean-folder",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "streamlit", "run", "clean-folder/app.py", "--server.port", "8502", "--server.headless", "true"],
+      "port": 8502
+    }
+  ]
+}

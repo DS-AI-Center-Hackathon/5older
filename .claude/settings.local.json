@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(python create_sample.py)"
+    ]
+  }
+}
